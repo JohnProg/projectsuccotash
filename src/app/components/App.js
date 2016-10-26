@@ -5,6 +5,8 @@ import CreateLesson from './CreateLesson';
 import CourseList from './CourseList';
 import autoBind from 'react-autobind';
 
+import Navbar from './layout/navbar.js';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +15,7 @@ class App extends React.Component {
     render() {
         return (
         <div>
+        <Navbar>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/course">Course</Link></li>
@@ -22,9 +25,12 @@ class App extends React.Component {
                 <li><Link to="/lessons">Lessons</Link></li>
                 <li><Link to="/lesson">Lesson</Link></li>
             </ul>
+        </Navbar>
+        <div className="mainContainer">
             { this.props.children }
         </div>
-            )
+        </div>
+        )
     }
 };
 
