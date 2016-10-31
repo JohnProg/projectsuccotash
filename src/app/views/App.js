@@ -5,6 +5,8 @@ import CreateLesson from './CreateLesson';
 import CourseList from './CourseList';
 import autoBind from 'react-autobind';
 
+require("style!css!app.css");
+
 class App extends React.Component {
   constructor(props) {
     super(props);
