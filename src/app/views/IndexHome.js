@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './dashboard/button.js';
+import Button from '../components/dashboard/button.js';
 
 export default () => {
   return <div><h1> 
