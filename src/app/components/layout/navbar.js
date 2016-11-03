@@ -1,18 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
-import CreateCourse from './CreateCourse';
-import CreateLesson from './CreateLesson';
-import CourseList from './CourseList';
-import autoBind from 'react-autobind';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    autoBind(this);
-  }
-    render() {
-        return (
-        <div>
+class Navbar extends React.Component {
+ render() {  
+    return (
+        <div className="navigation-bar">
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/course">Course</Link></li>
@@ -22,10 +14,9 @@ class App extends React.Component {
                 <li><Link to="/lessons">Lessons</Link></li>
                 <li><Link to="/lesson">Lesson</Link></li>
             </ul>
-            { this.props.children }
         </div>
-            )
-    }
+    )
+ }
 };
 
-export default App;
+export default Navbar;

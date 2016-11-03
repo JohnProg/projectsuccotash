@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import HomeIndex from './components/IndexHome';
-import App from './components/App';
-import Course from './components/Course';
-import CourseList from './components/CourseList';
-import CreateCourse from './components/CreateCourse';
-import CreateLesson from './components/CreateLesson';
-import Lesson from './components/Lesson';
-import LessonList from './components/LessonList';
+import HomeIndex from './views/IndexHome';
+import App from './views/App';
+import Course from './views/Course';
+import CourseList from './views/CourseList';
+import CreateCourse from './views/CreateCourse';
+import CreateLesson from './views/CreateLesson';
+import Lesson from './views/Lesson';
+import LessonList from './views/LessonList';
 
 export default (
   <Route path="/" component={App}>

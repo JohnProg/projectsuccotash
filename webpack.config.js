@@ -8,7 +8,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    filename: 'dist/bundle.js'
+    filename: 'dist/app/bundle.js'
   },
   debug: true,
   devtool: 'source-map',
@@ -23,9 +23,14 @@ module.exports = {
         loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react']
       },
       {
-        test: /\.css$/, 
-        loader: "style-loader!css-loader" 
+        test: /\.scss$/,
+        src: /src/, 
+        loader: 'style!css!sass'
+        //loaders: ["style", "css", "sass"]
       }
     ]
+  },
+  sassLoader: {
+    sourceMap: true
   }
 };
