@@ -21,7 +21,8 @@
     "react-jss": "^4.1.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
-    "redux": "^3.4.0"
+    "redux": "^3.4.0",
+    "redux-promise": "^0.5.3"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",

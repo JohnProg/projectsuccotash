@@ -6,10 +6,11 @@ import reducers from './reducers';
 import {Provider} from 'react-redux';
 import routes from './routes';
 import {Router, browserHistory} from 'react-router';
+import configureStore from './store/configureStore.js';
 
 import './styles/app.scss'
 
-const store = createStore(reducers);
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>

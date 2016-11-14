@@ -9,8 +9,8 @@ class Navbar extends React.Component {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/course">Course</Link></li>
                 <li><Link to="/courses">Courses</Link></li>
-                <li><Link to="/createcourse">Create Course</Link></li>
-                <li><Link to="/createlesson">Create Lesson</Link></li>
+                <li><Link to="/newcourse">Create Course</Link></li>
+                <li><Link to="/newlesson">Create Lesson</Link></li>
                 <li><Link to="/lessons">Lessons</Link></li>
                 <li><Link to="/lesson">Lesson</Link></li>
             </ul>

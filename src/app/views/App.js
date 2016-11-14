@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import CreateCourse from './CreateCourse';
-import CreateLesson from './CreateLesson';
+import NewCourse from './NewCourse';
+import NewLesson from './NewLesson';
 import CourseList from './CourseList';
 import autoBind from 'react-autobind';
 import Navbar from '../components/layout/navbar';
