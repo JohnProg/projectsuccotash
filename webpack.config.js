@@ -2,6 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
+  'whatwg-fetch',
   'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
   'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
   './src/app/index.js' //app's entry point
