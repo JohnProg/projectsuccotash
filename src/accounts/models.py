@@ -2,7 +2,7 @@ import uuid
 from datetime import timedelta
 
 from django.conf import settings
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -64,7 +64,7 @@ class MyUserManager(BaseUserManager):
                                  **extra_fields)
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser):
     """
     Model that represents an user.
     To be active, the user must register and confirm his email.
@@ -88,7 +88,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     confirmed_email = models.BooleanField(default=False)
 
     is_staff = models.BooleanField(_('staff status'), default=False)
-    #is_superuser = models.BooleanField(_('superuser status'), default=False)
+    is_superuser = models.BooleanField(_('superuser status'), default=False)
     is_active = models.BooleanField(_('active'), default=True)
 
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
@@ -126,6 +126,11 @@ class User(AbstractBaseUser, PermissionsMixin):
         :return: boolean
         """
         return self.date_joined + timedelta(days=settings.ACCOUNT_ACTIVATION_DAYS) < timezone.now()
+    def has_perm(self, perm, obj=None):
+        return self.is_superuser
+
+    def has_module_perms(self, app_label):
+        return self.is_superuser
 
     def confirm_email(self):
         """

@@ -8,10 +8,12 @@ import NewCourse from './views/NewCourse';
 import NewLesson from './views/NewLesson';
 import Lesson from './views/Lesson';
 import LessonList from './views/LessonList';
+import LogIn from './views/LogIn';
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomeIndex} />
+    <Route path="/login" component={LogIn} />
     <Route path="/course" component={Course} />
     <Route path="/courses" component={CourseList} />
     <Route path="/newcourse" component={NewCourse} />

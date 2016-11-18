@@ -13,6 +13,7 @@ class Navbar extends React.Component {
                 <li><Link to="/newlesson">Create Lesson</Link></li>
                 <li><Link to="/lessons">Lessons</Link></li>
                 <li><Link to="/lesson">Lesson</Link></li>
+                <li><Link to="/login">Log in</Link></li>
             </ul>
         </div>
     )

@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'accounts',
+    'corsheaders',
 ]
 
 MIDDLEWARE_CLASSES = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -155,3 +157,9 @@ REST_KNOX = {
     'AUTH_TOKEN_CHARACTER_LENGTH': 64,
     'USER_SERIALIZER': 'knox.serializers.UserSerializer'
 }
+
+############## CORS ORIGINS #####################
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000'
+)
