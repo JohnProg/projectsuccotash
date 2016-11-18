@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { push } from 'react-router-redux';
+import { logoutUserAndRedirect } from '../../actions/auth';
+import { connect } from 'react-redux';
 
 class Navbar extends React.Component {
+    
+
+logout = () => {
+    this.props.dispatch(logoutUserAndRedirect());
+};
+
  render() {  
     return (
         <div className="navigation-bar">
@@ -13,11 +22,25 @@ class Navbar extends React.Component {
                 <li><Link to="/newlesson">Create Lesson</Link></li>
                 <li><Link to="/lessons">Lessons</Link></li>
                 <li><Link to="/lesson">Lesson</Link></li>
+                {this.props.isAuthenticated ?
+                    <li>
+                        <button onClick={this.logout}>
+                            Logout
+                        </button>
+                    </li>
+                                :
                 <li><Link to="/login">Log in</Link></li>
+                }
             </ul>
         </div>
     )
  }
 };
 
-export default Navbar;
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state.auth.isAuthenticated
+    };
+};
+
+export default connect(mapStateToProps)(Navbar);

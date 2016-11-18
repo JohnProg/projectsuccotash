@@ -46,9 +46,7 @@ class LogInFormContainer extends React.Component {
 
 
     onFormChange = (value) => {
-        console.log(value);
         this.setState({ formValues: value });
-        console.log("State "+this.state.formValues.email);
     };
 
   render() {

@@ -12,7 +12,7 @@ const Login = t.struct({
 
 const LoginFormOptions = {
     auto: 'placeholders',
-    help: <i>Hint: a@a.com / qw</i>,
+    help: <i>Log into your account</i>,
     fields: {
         password: {
             type: 'password',
@@ -25,16 +25,12 @@ class LoginForm extends React.Component {
   constructor(props) {
         super(props);
         autoBind(this);
-        console.log("form "+this.props.formValues);
     }
 
     login = (e) => {
         e.preventDefault();
         const value = this.loginForm.getValue();
         if (value) {
-          console.log("email: "+value.email);
-          console.log("pass: "+value.password);
-          console.log("redirect: "+this.props.redirectTo);
             this.props.logInUser(value.email, value.password, this.props.redirectTo);
         }
     };
