@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
   entry: [
@@ -12,9 +14,6 @@ module.exports = {
   },
   debug: true,
   devtool: 'source-map',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
   module: {
     loaders: [
       {
@@ -22,14 +21,14 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0']
       },
-      {
-        test: /\.scss$/,
-        src: /src/, 
-        loader: 'style!css!sass'
-        //loaders: ["style", "css", "sass"]
-      }
+      {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass')}
     ]
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin("styles.css"),
+    new WebpackNotifierPlugin(),
+  ],
   sassLoader: {
     sourceMap: true
   }
