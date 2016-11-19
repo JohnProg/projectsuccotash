@@ -1,2 +1,5 @@
 node_modules/
 dist/
+myvenv/
+*.pyc
+*.pyo
