@@ -13,6 +13,7 @@ This is the repository for Project Succotash.
 
 Activate virtual environment and install Python requirements
 
+* `$ python3 -m venv myvenv`
 * `$ source myvenv/bin/activate`
 * `$ pip install -r python-requirements/base.txt`
 
