@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'email', 'first_name', 'last_name', 'password')
+        fields = ('email', 'first_name', 'last_name', 'password')
 
     def create(self, validated_data):
         """

@@ -11,10 +11,9 @@ This is the repository for Project Succotash.
 * `$ npm install`
 * `$ npm run build`
 
-Set up virtual environment and install Python requirements
+Activate virtual environment and install Python requirements
 
-* `$ python3 -m venv myvenv`
-* `$ source virtualenv/bin/activate`
+* `$ source myvenv/bin/activate`
 * `$ pip install -r python-requirements/base.txt`
 
 * `$ cd src`
