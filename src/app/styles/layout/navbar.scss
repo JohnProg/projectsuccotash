@@ -1,3 +1,10 @@
-html {
-	background: black;
+.navigation-bar {
+	background: white;
+	width: span(12);
+	position: fixed;
+	top: 0;
+	li {
+		width: span(1);
+		display: inline-block;
+	}
 }

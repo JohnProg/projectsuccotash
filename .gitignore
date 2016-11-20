@@ -3,3 +3,4 @@ dist/
 myvenv/
 *.pyc
 *.pyo
+*.log

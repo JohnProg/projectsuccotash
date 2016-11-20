@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var WebpackNotifierPlugin = require('webpack-notifier');
+var purify = require("purifycss-webpack-plugin");
 
 module.exports = {
   entry: [
@@ -21,13 +22,19 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0']
       },
-      {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass')}
+      {
+        test: /\.scss$/, 
+        loader: ExtractTextPlugin.extract('css!sass')
+      }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin("dist/styles/app.css"),
+    new purify({
+      purifyOptions: { info: true, minify: true, rejected: true}
+    }),
     new WebpackNotifierPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
   sassLoader: {
     sourceMap: true

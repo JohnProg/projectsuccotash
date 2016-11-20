@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
         }
 
         return (
-            <div>
+            <div className="login-form">
                 <h1>Login</h1>
                 <div>
                     {statusText}
