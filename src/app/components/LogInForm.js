@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 import t from 'tcomb-form';
 import autoBind from 'react-autobind';
@@ -46,7 +47,7 @@ class LoginForm extends React.Component {
         }
 
         return (
-            <div className="login-form">
+            <div className="panel login-form">
                 <h1>Login</h1>
                 <div>
                     {statusText}
@@ -57,11 +58,10 @@ class LoginForm extends React.Component {
                               value={this.props.formValues}
                               onChange={this.props.onFormChange}
                         />
-                        <button disabled={this.props.isAuthenticating}
-                                type="submit"
-                        >
+                        <button disabled={this.props.isAuthenticating} type="submit" >
                             Submit
                         </button>
+                        <Link className="testy-test" to="/signup">Sign up</Link>
                     </form>
                 </div>
             </div>

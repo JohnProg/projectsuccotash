@@ -1,5 +1,9 @@
-@import "base/global.scss";
-@import "base/buttons.scss";
+// @TODO need to refactor this whole thing
+@import "globals/global.scss";
+
+@import "interface/buttons.scss";
+@import "interface/panels.scss";
 @import "layout/navbar.scss";
+@import "layout/container.scss";
 @import "forms/loginform.scss";
 

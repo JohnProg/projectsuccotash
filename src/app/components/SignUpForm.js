@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
         }
 
         return (
-            <div>
+            <div className="panel login-form">
                 <h1>Sign Up</h1>
                 <div>
                     {statusText}

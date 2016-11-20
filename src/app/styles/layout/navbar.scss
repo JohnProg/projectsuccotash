@@ -1,10 +1,20 @@
-.navigation-bar {
-	background: white;
-	width: span(12);
+.main-navbar {
+	width: 100%;
 	position: fixed;
 	top: 0;
-	li {
-		width: span(1);
-		display: inline-block;
+	margin-bottom: 50px;
+	.navbar-super-links {
+		@include span(8); 
+		&> li {
+			@include span(1 of 7);
+			display: inline-block;
+		}
+	}
+	.navbar-actions {
+		@include span(4 last); 
+		li {
+			float: right;
+			display: inline-block;
+		}
 	}
 }

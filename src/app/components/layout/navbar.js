@@ -13,28 +13,34 @@ logout = () => {
 
  render() {  
     return (
-        <div className="navigation-bar">
-            <ul>
+        <div className="main-navbar">
+            <ul className="navbar-super-links">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/course">Course</Link></li>
                 <li><Link to="/courses">Courses</Link></li>
-                <li><Link to="/newcourse">Create Course</Link></li>
-                <li><Link to="/newlesson">Create Lesson</Link></li>
                 <li><Link to="/lessons">Lessons</Link></li>
                 <li><Link to="/lesson">Lesson</Link></li>
+                {this.props.isAuthenticated ? 
+                <div>
+                    <li><Link to="/newcourse">Create Course</Link></li>
+                    <li><Link to="/newlesson">Create Lesson</Link></li>
+                </div>
+                : '' }
+            </ul>
                 {this.props.isAuthenticated ?
-                    <li>
+                    <div className="navbar-actions auth">
                         <button onClick={this.logout}>
                             Logout
                         </button>
-                    </li>
+                    </div>
                                 :
-                <div>
-                <li><Link to="/login">Log in</Link></li>
-                <li><Link to="/signup">Sign up</Link></li>
+                <div className="navbar-actions unauth">
+                    <ul>
+                        <li><Link to="/login">Log in</Link></li>
+                        <li><Link to="/signup">Sign up</Link></li>
+                    </ul>
                 </div>
                 }
-            </ul>
         </div>
     )
  }

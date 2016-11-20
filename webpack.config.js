@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var WebpackNotifierPlugin = require('webpack-notifier');
-var purify = require("purifycss-webpack-plugin");
+// var purify = require("purifycss-webpack-plugin");
 
 module.exports = {
   entry: [
@@ -28,15 +28,16 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin("dist/styles/app.css"),
-    new purify({
-      purifyOptions: { info: true, minify: true, rejected: true}
-    }),
-    new WebpackNotifierPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ],
   sassLoader: {
     sourceMap: true
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("dist/styles/app.css"),
+    // @TODO should probably only use this for production, slows down dev build too much
+    // new purify({
+    //   purifyOptions: { info: true, minify: true, rejected: true}
+    // }),
+    new webpack.HotModuleReplacementPlugin(),
+    new WebpackNotifierPlugin()
+  ]
 };

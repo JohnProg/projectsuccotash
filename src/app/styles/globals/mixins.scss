@@ -1,0 +1,35 @@
+//
+// Function to easily retrieve sizes from a scale.
+// --------------------------------------------------
+@function typeScale($size, $ratio: $scale-ratio) {
+  @return pow($ratio, $size - 2) * 1rem;
+}
+
+//
+// Pow function
+// --------------------------------------------------
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+//
+// getColor Function
+// --------------------------------------------------
+// Easily retrieve colors from the $colors map.
+//
+@function getColor($color, $value: "base") {
+  @return map-get(map-get($colors, $color), $value);
+}
