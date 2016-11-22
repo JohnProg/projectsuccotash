@@ -1,9 +1,14 @@
 import React from 'react';
-import Button from '../components/dashboard/button.js';
+import Button from '../components/base/button.js';
+import LogInFormContainer from '../containers/LogInFormContainer';
+
+
 
 export default () => {
-  return <div><h1> 
-  <Button>Test</Button>
-  Home Page of Project Succotash! 
-  </h1></div>;
+  return <div>
+  <div className="home-banner">
+  	Home Page of Project Succotash! 
+  </div>
+  <LogInFormContainer />
+  </div>;
 };

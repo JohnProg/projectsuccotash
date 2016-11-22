@@ -1,4 +1,7 @@
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var WebpackNotifierPlugin = require('webpack-notifier');
+// var purify = require("purifycss-webpack-plugin");
 
 module.exports = {
   entry: [
@@ -12,9 +15,6 @@ module.exports = {
   },
   debug: true,
   devtool: 'source-map',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
   module: {
     loaders: [
       {
@@ -23,14 +23,21 @@ module.exports = {
         loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0']
       },
       {
-        test: /\.scss$/,
-        src: /src/, 
-        loader: 'style!css!sass'
-        //loaders: ["style", "css", "sass"]
+        test: /\.scss$/, 
+        loader: ExtractTextPlugin.extract('css!sass')
       }
     ]
   },
   sassLoader: {
     sourceMap: true
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("dist/styles/app.css"),
+    // @TODO should probably only use this for production, slows down dev build too much
+    // new purify({
+    //   purifyOptions: { info: true, minify: true, rejected: true}
+    // }),
+    new webpack.HotModuleReplacementPlugin(),
+    new WebpackNotifierPlugin()
+  ]
 };
